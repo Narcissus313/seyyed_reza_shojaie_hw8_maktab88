@@ -12,11 +12,12 @@
     width: 650px;
     height: 400px;
     padding: 20px;
-    margin: 10px;
+    margin:30px auto;
+    background-color: rgb(255, 255, 231);
 }
 
 input {
-    width: 12em;
+    width: 100%;
     height: 2em;
     border: 0;
     padding: 10px;
@@ -66,6 +67,7 @@ fieldset {
     border-radius: 4px;
     margin: auto;
     padding: 4px;
+    background-color: white;
 }
 
 legend {
@@ -77,4 +79,27 @@ legend {
 
 span {
     display: none;
+    animation: tilt-shaking 0.3s ease-in-out;
+}
+
+@keyframes tilt-shaking {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(10deg);
+    }
+
+    50% {
+        transform: rotate(0eg);
+    }
+
+    75% {
+        transform: rotate(-10deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
 }

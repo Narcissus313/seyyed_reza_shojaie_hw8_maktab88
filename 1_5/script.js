@@ -5,6 +5,9 @@ let passConfInput = document.getElementById("pass-conf-input");
 let userSpan = document.getElementById("user-name-span");
 let passSpan = document.getElementById("pass-span");
 let passConfSpan = document.getElementById("pass-conf-span");
+let userNameField = document.getElementsByTagName("fieldset")[0];
+let passField = document.getElementsByTagName("fieldset")[1];
+let passConfField = document.getElementsByTagName("fieldset")[2];
 
 userNameInput.oninput = function () {
 	userSpan.style.display = "none";
@@ -25,22 +28,48 @@ passConfInput.oninput = function () {
 btn.onclick = function () {
 	if (!userNameInput.value) {
 		userSpan.style.display = "block";
-		document.getElementsByTagName("fieldset")[0].style.border =
-			"2px solid red";
+        userNameField.style.border = "2px solid red";
+        document.getElementById("user-name-input").focus();
+        return;
+	}
+	if (userNameInput.value.trim().includes(" ")) {
+		userSpan.style.display = "block";
+        userNameField.style.border = "2px solid red";
+        userSpan.innerText = 'نام کاربری میبایست بدون فاصله باشد.';
+        document.getElementById("user-name-input").focus();
+		return;
+	}
+	if (!/^[a-zA-Z\d\s\-'#(),"0-9]*$/.test(userNameInput.value)) {
+		userSpan.style.display = "block";
+		userNameField.style.border = "2px solid red";
+		userSpan.innerText = "فقط کاراکترهای انگلیسی";
+		return;
 	}
 	if (!passInput.value) {
 		passSpan.style.display = "block";
-		document.getElementsByTagName("fieldset")[1].style.border =
-			"2px solid red";
+        passField.style.border = "2px solid red";
+        document.getElementById("pass-input").focus();
+
+        return;
+	} else if (!/^(?=.*\d)(?=.*[a-zA-Z]).{8,}$/.test(passInput.value)) {
+		passSpan.innerText =
+			"نام کاربری می بایست مجموعه ای حداقل 8 کاراکتری شامل اعداد و حروف لاتین باشد.";
+		passSpan.style.display = "block";
+        passField.style.border = "2px solid red";
+        document.getElementById("pass-input").focus();
+        return;
 	}
 	if (!passConfInput.value) {
 		passConfSpan.style.display = "block";
-		document.getElementsByTagName("fieldset")[2].style.border =
-			"2px solid red";
-	}
-	if (!passConfInput.value) {
+        passConfField.style.border = "2px solid red";
+        document.getElementById("pass-conf-input").focus();
+        return;
+	} else if (passInput.value !== passConfInput.value) {
+		passConfSpan.innerText = "رمزهای عبور یکسان نمیشباشد.";
 		passConfSpan.style.display = "block";
-		document.getElementsByTagName("fieldset")[2].style.border =
-			"2px solid red";
-	}
+        passConfField.style.border = "2px solid red";
+        document.getElementById("pass-conf-input").focus();
+        return;
+    }
+    document.location.reload();
 };
