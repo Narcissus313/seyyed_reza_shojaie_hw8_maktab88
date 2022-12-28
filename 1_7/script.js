@@ -18,6 +18,7 @@ for (const key of Object.keys(newUserData[0])) {
 function thMaker(text) {
 	let th = document.createElement("th");
 	th.style.padding = "4px 10px";
+	th.style.border = "1px solid black";
 	th.innerText = text;
 	return th;
 }
@@ -25,7 +26,7 @@ function tdMaker(text) {
 	let td = document.createElement("td");
 	td.style.textAlign = "center";
 	td.style.padding = "4px 16px";
-	td.style.borderBottom = "1px solid black";
+	td.style.border = "1px solid black";
 	td.style.height = "38px";
 	td.innerText = text;
 	return td;
@@ -56,6 +57,7 @@ function tableMaker() {
 	titleRow.style.backgroundColor = "black";
 	titleRow.style.color = "white";
 	table.style.border = "1px solid black";
+	table.style.borderCollapse = 'collapse';
 	table.style.margin = "auto";
 	table.appendChild(titleRow);
 }
