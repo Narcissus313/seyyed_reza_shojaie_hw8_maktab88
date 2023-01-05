@@ -96,12 +96,6 @@ for (let i = 0; i < params.length; i++) {
 }
 
 function createUser(newUser) {
-	//validation part
-	if (typeof newUser !== "object") {
-		console.log("not a valid input");
-		return;
-	}
-
 	for (const object of userData) {
 		//checks if the user with this uid exists
 		if (object.uid === newUser.uid) {
