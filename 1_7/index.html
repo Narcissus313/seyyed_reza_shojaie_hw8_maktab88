@@ -1,14 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="fav icon" href="#">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="w3.css">
 </head>
+
 <body>
+    <div class="btnAdd">+</div>
+    <div id="myModal" class="modal">
+        <div class="modal-content" id="modalContent">
+            <table class="w3-table-all w3-hoverable">
+                <thead>
+                    <th>Row</th>
+                    <th>uid</th>
+                    <th>firstname</th>
+                    <th>lastname</th>
+                    <th>city</th>
+                    <th>phoneNumber</th>
+                    <th>postalCode</th>
+                    <th>position</th>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <div class="cleaner">Delete</div>
+            <div class="btnSave">Save</div>
+        </div>
+    </div>
 </body>
 <script src="user-data.js"></script>
 <script src="script.js"></script>
+
 </html>
