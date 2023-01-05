@@ -138,6 +138,9 @@ tBody.addEventListener("click", function (e) {
 			modalBody.children[i].style.color = "white";
 			modalBody.children[i].style.cursor = "default";
 		} else {
+			modalBody.addEventListener("mouseenter", function () {
+				this.style.backgroundColor = "white";
+			});
 			modalBody.children[i].contentEditable = "true";
 			modalBody.children[i].style.border = "1px solid #ccc";
 			modalBody.children[i].style.cursor = "pointer";
@@ -216,6 +219,9 @@ btnAdd.addEventListener("click", function (e) {
 	// modalPanel.removeChild(modalPanel.firstChild);
 	modalBody = modalTable.querySelector("tbody tr");
 	for (let i = 1; i < params.length + 1; i++) {
+		modalBody.addEventListener("mouseenter", function () {
+			this.style.backgroundColor = "white";
+		});
 		modalBody.children[i].contentEditable = "true";
 		modalBody.children[i].style.border = "1px solid #ccc";
 		modalBody.children[i].style.cursor = "pointer";
